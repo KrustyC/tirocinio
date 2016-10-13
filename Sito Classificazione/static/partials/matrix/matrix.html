@@ -1,0 +1,119 @@
+<nav class="navbar navbar-light bg-faded">
+  <a class="navbar-brand" href="#">Stream classification</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="/#/">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/info">Info</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/#/set">Set</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/classification">Classification</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/metrics">Metrics</a>
+    </li>
+       <li class="nav-item">
+      <a class="nav-link" href="/#/matrixRelevant">Matrix Relevant</a>
+    </li>
+  </ul>
+   <div class="navContainer">
+    <form class="navbar-search ">
+      <select id="selectSearch" ng-options="number as number for number in numbers" ng-model="searchNumber" class="form-control"  >  
+        <option style="display:none" value="">Seleziona un numero</option>
+      </select>
+    </form> 
+    <button  id="btnSearch" ng-click="showNUmber()" type="submit" class="btn btn-warning "> 
+      <span class="glyphicon glyphicon-search"></span>
+    </button>
+  </div>
+
+</nav>
+
+<table class="table table-bordered ">
+	<thead>
+
+		<tr>
+			<th id="tMatrixClasse"> Classe </th>
+      <th class="tMatrixAll"> Battery_Level </th>
+      <th class="tMatrixAll"> Brightness </th>
+      <th class="tMatrixAll"> Capacity </th>
+      <th class="tMatrixAll"> CPU_Usage </th>
+      <th class="tMatrixAll"> Colour </th>
+      <th class="tMatrixAll"> Count </th>
+      <th class="tMatrixAll"> Current </th>
+      <th class="tMatrixAll"> Dewpoint </th>
+      <th class="tMatrixAll"> Distance </th>
+      <th class="tMatrixAll"> Dust_Level </th>
+      <th class="tMatrixAll"> Energy </th>
+      <th class="tMatrixAll"> Gas_Level </th>
+      <th class="tMatrixAll"> Geolocalization </th>
+      <th class="tMatrixAll"> Heat_Index </th>
+      <th class="tMatrixAll"> Height </th>
+      <th class="tMatrixAll"> Humidity </th>
+      <th class="tMatrixAll"> LQI </th>
+      <th class="tMatrixAll"> Memory </th>
+      <th class="tMatrixAll"> Motion </th>
+      <th class="tMatrixAll"> PH </th>
+      <th class="tMatrixAll"> Power </th>
+      <th class="tMatrixAll"> Pressure </th>
+      <th class="tMatrixAll"> Price </th>
+      <th class="tMatrixAll"> Radiation </th>
+      <th class="tMatrixAll"> Rain_Index </th>
+      <th class="tMatrixAll"> Rate </th>
+      <th class="tMatrixAll"> RSSI </th>
+      <th class="tMatrixAll"> Temperature </th>
+      <th class="tMatrixAll"> Time </th>
+      <th class="tMatrixAll"> UV </th>
+      <th class="tMatrixAll"> Voltage </th>
+      <th class="tMatrixAll"> Wind_Direction </th>
+      <th class="tMatrixAll"> Wind_Speed </th>
+      <th class="tMatrixAll"> Totale </th>
+      
+		</tr>
+	</thead>
+	<tbody id="tbodyAll">
+    <tr ng-repeat="val in rows">
+     <td id="tMatrixClasse"> [[ val.Classe ]] </td>
+      <td class="tMatrixAll"> [[ val.Battery_Level ]] </td>
+      <td class="tMatrixAll"> [[ val.Brightness ]] </td>
+      <td class="tMatrixAll"> [[ val.Capacity ]] </td>
+      <td class="tMatrixAll"> [[ val.CPU_Usage ]] </td>
+      <td class="tMatrixAll"> [[ val.Colour ]] </td>
+      <td class="tMatrixAll"> [[ val.Count ]] </td>
+      <td class="tMatrixAll"> [[ val.Current ]] </td>
+      <td class="tMatrixAll"> [[ val.Dewpoint ]] </td>
+      <td class="tMatrixAll"> [[ val.Distance ]] </td>
+      <td class="tMatrixAll"> [[ val.Dust_Level ]] </td>
+      <td class="tMatrixAll"> [[ val.Energy ]] </td>
+      <td class="tMatrixAll"> [[ val.Gas_Level ]] </td>
+      <td class="tMatrixAll"> [[ val.Geolocalization ]] </td>
+      <td class="tMatrixAll"> [[ val.Heat_Index ]] </td>
+      <td class="tMatrixAll"> [[ val.Height ]] </td>
+      <td class="tMatrixAll"> [[ val.Humidity ]] </td>
+      <td class="tMatrixAll"> [[ val.LQI ]] </td>
+      <td class="tMatrixAll"> [[ val.Memory ]] </td>
+      <td class="tMatrixAll"> [[ val.Motion ]] </td>
+      <td class="tMatrixAll"> [[ val.PH ]] </td>
+      <td class="tMatrixAll"> [[ val.Power ]] </td>
+      <td class="tMatrixAll"> [[ val.Pressure ]] </td>
+      <td class="tMatrixAll"> [[ val.Price ]] </td>
+      <td class="tMatrixAll"> [[ val.Radiation ]] </td>
+      <td class="tMatrixAll"> [[ val.Rain_Index ]] </td>
+      <td class="tMatrixAll"> [[ val.Rate ]] </td>
+      <td class="tMatrixAll"> [[ val.RSSI ]] </td>
+      <td class="tMatrixAll"> [[ val.Temperature ]] </td>
+      <td class="tMatrixAll"> [[ val.Time ]] </td>
+      <td class="tMatrixAll"> [[ val.UV ]] </td>
+      <td class="tMatrixAll"> [[ val.Voltage ]] </td>
+      <td class="tMatrixAll"> [[ val.Wind_Direction ]] </td>
+      <td class="tMatrixAll"> [[ val.Wind_Speed ]] </td>
+      <td class="tMatrixAll"> [[ val.Totale ]] </td>
+    </tr>
+	</tbody>
+
+</table>
+

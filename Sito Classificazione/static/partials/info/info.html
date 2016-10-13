@@ -1,0 +1,60 @@
+<img src='/static/images/loading.gif' class="loader">
+  <nav class="navbar navbar-light bg-faded">
+  <a class="navbar-brand" href="#">Stream classification</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="/#/">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/info">Info</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/#/set">Set</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/#/classification">Classification</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/#/metrics">Metrics</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/matrix">Confusion Matrix</a>
+    </li>
+  </ul>
+</nav>
+<div class="cont">
+	<p> <b> N° stream totali: </b> [[ info.totCount]]  </p>
+
+	<p> <b> N° stream classificati: </b> [[ info.classifiedCount]]  </p>
+
+	<p> <b> N° stream da SparkFun: </b> [[ info.sfCount]]  </p>
+
+	<p> <b> N° stream da ThingSpeak: </b> [[ info.tsCount]]  </p>
+
+	<p> <b> N° stream di classi rilevanti: </b> [[ info.relevantCount]]  </p>
+
+	<p> <b> N° stream Test Set: </b> [[ info.testCount]]  </p>
+
+	<p> <b> N° stream Training Set: </b> [[ info.trainingCount]]  </p>
+<br>
+		<h4> Informazioni classe  </h4>
+	<p id="pSelect"> 
+		<select ng-options="classe as classe for classe in classes" ng-model="myClass" class="form-control" id="selectS" >  
+			<option style="display:none" value="">Seleziona una classe</option>
+		</select>
+		<br>
+		<button id="#btnSelect" class="btn btn-success" ng-click="classCount()"> Cerca </button>
+	</p> 
+
+	<p> 
+		<p class="bSelect"> <b> [[ myClass ]] </b> 
+		<br>
+			N° stream: [[ streamClasse]]
+		<br>
+			Percentuale: <b> [[ classPercentage]] % </b>
+		</p>
+	</p>
+
+	[[message]]
+
+</div>

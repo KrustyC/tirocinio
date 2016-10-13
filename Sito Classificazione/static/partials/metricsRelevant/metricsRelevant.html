@@ -1,0 +1,62 @@
+
+  <nav class="navbar navbar-light bg-faded">
+  <a class="navbar-brand" href="#">Stream classification</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="/#/">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/info">Info</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/#/set">Set</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/classification">Classification</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/metrics">Metrics</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/matrix">Confusion Matrix</a>
+    </li>
+  </ul>
+  
+  <div class="navContainer">
+    <form class="navbar-search ">
+      <select id="selectSearch" ng-options="number as number for number in numbers" ng-model="searchNumber" class="form-control"  >  
+        <option style="display:none" value="">Seleziona un numero</option>
+      </select>
+    </form> 
+    <button  id="btnSearch" ng-click="showNUmber()" type="submit" class="btn btn-warning "> 
+      <span class="glyphicon glyphicon-search"></span>
+    </button>
+  </div>
+
+  <button class="btn btn-success btn-set" ng-click="getTotalMetrics()"> Totali/rilevanti</button>
+</nav>
+
+<table class="table table-striped header-fixed">
+	<thead>
+		<tr >
+			<th class="classe"> Class </th>
+			<th class="recall"> Recall </th>
+			<th class="precision"> Precision </th>
+			<th class="f_measure"> F_measure </th>
+			<th class="timestamp"> Timestamp </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="metric in metrics | limitTo:totalDisplayed" ng-style="rowStyle">
+			<td class="classe">[[ metric.class ]] </td>
+			<td class="recall">[[ metric.recall ]]</td>
+			<td class="precision">[[ metric.precision ]]</td>
+			<td class="f_measure">[[ metric.f_measure ]]</td>
+			<td class="timestamp">[[ metric.timestamp ]]</td>
+		</tr>
+	</tbody>
+
+</table>
+<button id="btnLoad" class="btn btn-success btn-circle" ng-click="loadMore()">
+<span class="glyphicon glyphicon-plus"></span>
+</button>

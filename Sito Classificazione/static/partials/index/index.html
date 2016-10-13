@@ -1,0 +1,109 @@
+  <img src='/static/images/loading.gif' class="loader">
+  
+  <script type="text/ng-template" id="myModalContent.html">
+
+        <div class="modal-header">
+        	
+           <p id="pAlert"> <span style="font-size:1.5em;" id="spanTag" class="glyphicon glyphicon-tags"> </span> <h3 class="modal-title"> Channel Tags </h3> </p>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="tag in tags">
+                    [[ tag ]]
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <button id="btnAlert" class="btn" ng-click="cancel()">Ok</button>
+        </div>
+    </script>
+
+  <nav class="navbar navbar-light bg-faded">
+  <a class="navbar-brand" href="#">Stream classification</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="/#/">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/info">Info</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/#/set">Set</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/#/classification">Classification</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/#/metrics">Metrics</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/matrix">Confusion Matrix</a>
+    </li>
+  </ul>
+<div class="navContainer">
+ <form class="navbar-search ">
+                    <select id="selectSearch" ng-options="classe as classe for classe in classes" ng-model="searchClass" class="form-control"  >  
+			<option style="display:none" value="">Seleziona una classe</option>
+		</select>
+ </form> 
+	<button  id="btnSearch" ng-click="mostra()" type="submit" class="btn btn-warning "> 
+		<span class="glyphicon glyphicon-search"></span>
+	</button>
+
+   <button ng-click="refresh('/channels')" class="btn btn-outline-success btn-circle" id="refreshBtn" type="submit"  data-toggle="tooltip" data-placement="left" title="Refresh all!">
+        <span class="glyphicon glyphicon-refresh"></span>
+   </button>
+
+
+   <button ng-click="refresh('channelsClass')" class="btn btn-outline-success btn-circle" id="refreshClass" type="submit"  data-toggle="tooltip" data-placement="left" title="Refresh only not classified!">
+        <span class="glyphicon glyphicon-repeat"></span>
+   </button>
+
+   
+  </div>
+</nav>
+
+<table class="table table-striped header-fixed">
+	<thead>
+		<tr >
+			<th class="tProvenance"> Provenance </th> 
+			<th class="tName"> Channel Name </th>
+			<th class="tDescription"> Channel Description </th>
+			<th class="tField"> Field Name </th>
+			<th class="tTag"> Tags </th>
+			<th class="tClass"> Field Class </th>
+			<th class="tButton"> Modify </th>
+			<th class="tButton"> Delete </th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr id="tr[[ channel.field_id ]]" ng-repeat="channel in channels | limitTo:totalDisplayed" ng-style="rowStyle">
+			<td class="tProvenance"> <a href="[[ channel.link ]]" target="_blank"> [[ channel.provenance ]] </a> </td> 
+			<td class="tName"> [[ channel.channel_name ]]</td>
+			<td class="tDescription"> [[ channel.channel_description ]]</td>
+			<td class="tField"> [[ channel.field_name ]]</td>
+			<td class="tTag"> <span id="spanGly" class="glyphicon glyphicon-tags" ng-click="open([[ channel.channel_id]],[[ channel.field_id ]])"></span> </td>
+			<td class="tClass"> 
+				<input list="datalistclass"  type="text" class="form-control inputCLass" placeholder="[[ channel.field_class ]]" id="field[[ channel.field_id ]]"> 
+					<datalist id="datalistclass">
+   						<option ng-repeat="x in classes" value="[[ x ]]">
+   						</option>
+					</datalist> 
+			</td>
+			<td class="tButton"> 
+				<button  ng-click="updateChannel(channel.field_id)" type="submit" class="btn btn-success btnTd"> 
+					<span class="glyphicon glyphicon-ok"></span>
+				</button>
+			</td>
+			<td class="tButton"> 
+				<button  ng-click="deleteChannel( channel.field_id )" type="submit" class="btn btn-danger btnTd" >
+					<span class="glyphicon glyphicon-trash"></span>
+				</button>
+			</td>
+		</tr>
+	</tbody>
+
+</table>
+<button id="btnLoad" class="btn btn-success btn-circle" ng-click="loadMore()">
+<span class="glyphicon glyphicon-plus"></span>
+</button>

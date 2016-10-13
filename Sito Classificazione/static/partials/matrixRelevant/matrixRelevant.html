@@ -1,0 +1,78 @@
+<nav class="navbar navbar-light bg-faded">
+  <a class="navbar-brand" href="#">Stream classification</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="/#/">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/info">Info</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/#/set">Set</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/classification">Classification</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/metrics">Metrics</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/#/matrix">Confusion Matrix</a>
+    </li>
+  </ul>
+   <div class="navContainer">
+    <form class="navbar-search ">
+      <select id="selectSearch" ng-options="number as number for number in numbers" ng-model="searchNumber" class="form-control"  >  
+        <option style="display:none" value="">Seleziona un numero</option>
+      </select>
+    </form> 
+    <button  id="btnSearch" ng-click="showNUmber()" type="submit" class="btn btn-warning "> 
+      <span class="glyphicon glyphicon-search"></span>
+    </button>
+  </div>
+
+</nav>
+
+<table class="table table-bordered header-fixed">
+	<thead>
+  
+		<tr>
+			<th class="tMatrix"> Classe </th>
+      <th class="tMatrix"> Brightness </th>
+      <th class="tMatrix"> Dust_Level </th>
+      <th class="tMatrix"> Gas_Level </th>
+      <th class="tMatrix"> Heat_Index </th>
+      <th class="tMatrix"> Humidity </th>
+      <th class="tMatrix"> Power </th>
+      <th class="tMatrix"> Pressure </th>
+      <th class="tMatrix"> Radiation </th>
+      <th class="tMatrix"> Rain_Index </th>
+      <th class="tMatrix"> Temperature </th>
+      <th class="tMatrix"> UV </th>
+      <th class="tMatrix"> Wind_Direction </th>
+      <th class="tMatrix"> Wind_Speed </th>
+      <th class="tMatrix"> Totale </th>
+		</tr>
+	</thead>
+	<tbody>
+    <tr ng-repeat="val in rows">
+      <th class="tMatrix"> [[ val.Classe ]]</th>
+      <td class="tMatrix"> [[ val.Brightness ]] </td>
+      <td class="tMatrix"> [[ val.Dust_Level ]] </td>
+      <td class="tMatrix"> [[ val.Gas_Level ]] </td>
+      <td class="tMatrix"> [[ val.Heat_Index ]] </td>
+      <td class="tMatrix"> [[ val.Humidity ]] </td>
+      <td class="tMatrix"> [[ val.Power ]] </td>
+      <td class="tMatrix"> [[ val.Pressure ]] </td>
+      <td class="tMatrix"> [[ val.Radiation ]] </td>
+      <td class="tMatrix"> [[ val.Rain_Index ]] </td>
+      <td class="tMatrix"> [[ val.Temperature ]] </td>
+      <td class="tMatrix"> [[ val.UV ]] </td>
+      <td class="tMatrix"> [[ val.Wind_Direction ]] </td>
+      <td class="tMatrix"> [[ val.Wind_Speed ]] </td>
+      <td class="tMatrix"> [[ val.Totale ]] </td>
+    </tr>
+	</tbody>
+
+</table>
+
